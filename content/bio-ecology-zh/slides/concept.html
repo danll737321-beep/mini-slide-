@@ -1,21 +1,21 @@
-<section id="concept" style="background:#F3F5F2;color:#18262B;font-family:'Noto Sans TC', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
-<div style="display:flex;flex-direction:column;gap:12px">
-<p style="font-size:24px;font-weight:800;color:#B4521F;letter-spacing:3px">核心概念</p>
-<h2 style="font-size:64px;font-weight:900;line-height:1.15">每往上一層，只剩大約 10%</h2>
+<section id="concept" data-section="食物鏈與食物網" data-transition="fade" style="background:#E7EEEA;color:#18262B;font-family:'Noto Sans TC', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:700;letter-spacing:3px;color:#B4521F">食物鏈</p>
+<h2 style="font-size:72px;font-weight:900;line-height:1.15">箭頭跟著能量走</h2>
 </div>
-<div style="display:flex;gap:56px;align-items:center">
-<div style="width:1040px;display:flex;flex-direction:column;align-items:center;gap:8px">
-<div style="width:360px;background:#B4521F;border-radius:12px;padding:24px;display:flex;flex-direction:column;align-items:center"><p style="font-size:32px;font-weight:700;color:#F3F5F2">狼 · 100 kJ</p></div>
-<p style="font-size:24px;color:#4F5F64">↑ 大約 10% 往上傳</p>
-<div style="width:700px;background:#E58A55;border-radius:12px;padding:24px;display:flex;flex-direction:column;align-items:center"><p style="font-size:32px;font-weight:700;color:#18262B">兔子 · 1,000 kJ</p></div>
-<p style="font-size:24px;color:#4F5F64">↑ 大約 10% 往上傳</p>
-<div style="width:1040px;background:#F7E6DC;border-radius:12px;padding:24px;display:flex;flex-direction:column;align-items:center"><p style="font-size:32px;font-weight:700;color:#18262B">草 · 10,000 kJ</p></div>
+<div style="display:grid;grid-template-columns:640px 1fr;gap:64px;align-items:center;flex:1">
+<div style="display:flex;flex-direction:column;gap:16px;align-items:center">
+<svg aria-label="由上到下的食物鏈：太陽、草、兔子、狼，箭頭從前一個指向下一個" width="640" height="380" viewBox="0 0 640 380">
+<rect x="170" y="20" width="300" height="66" rx="16" fill="#FFC94D" stroke="#FFC94D" stroke-width="3"/><text x="320" y="64" text-anchor="middle" font-size="30" font-weight="900" fill="#18262B">太陽</text><rect x="170" y="112" width="300" height="66" rx="16" fill="#5B8C3A" stroke="#5B8C3A" stroke-width="3"/><text x="320" y="156" text-anchor="middle" font-size="30" font-weight="900" fill="#FFFFFF">草</text><line x1="320" y1="88" x2="320" y2="94" stroke="#4F5F64" stroke-width="6" stroke-linecap="round"/><polygon points="320,110 329,94 311,94" fill="#4F5F64"/><rect x="170" y="204" width="300" height="66" rx="16" fill="#E58A55" stroke="#E58A55" stroke-width="3"/><text x="320" y="248" text-anchor="middle" font-size="30" font-weight="900" fill="#18262B">兔子</text><line x1="320" y1="180" x2="320" y2="186" stroke="#4F5F64" stroke-width="6" stroke-linecap="round"/><polygon points="320,202 329,186 311,186" fill="#4F5F64"/><rect x="170" y="296" width="300" height="66" rx="16" fill="#B4521F" stroke="#B4521F" stroke-width="3"/><text x="320" y="340" text-anchor="middle" font-size="30" font-weight="900" fill="#FFFFFF">狼</text><line x1="320" y1="272" x2="320" y2="278" stroke="#4F5F64" stroke-width="6" stroke-linecap="round"/><polygon points="320,294 329,278 311,278" fill="#4F5F64"/><text x="475" y="220" text-anchor="start" font-size="24" font-weight="800" fill="#2463B8">能量流向</text><line x1="540" y1="250" x2="540" y2="314" stroke="#2463B8" stroke-width="5" stroke-linecap="round"/><polygon points="540,330 549,314 531,314" fill="#2463B8"/>
+</svg>
+<p style="font-size:24px;color:#4F5F64">太陽 → 草 → 兔子 → 狼</p>
 </div>
-<div style="flex:1;background:#18262B;color:#F3F5F2;border-radius:16px;padding:40px;display:flex;flex-direction:column;gap:20px">
-<h3 style="font-size:44px;font-weight:800">試試看</h3>
-<p style="font-size:32px;line-height:1.4">如果有動物吃狼，傳到第 4 層的能量有多少？</p>
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:34px;line-height:1.5">能量從<b>太陽</b>開始，由生產者接住。</p>
+<p style="font-size:34px;line-height:1.5">每個箭頭代表<b>「被……吃」</b>：草被兔子吃。</p>
+<p style="font-size:34px;font-weight:700;line-height:1.4;background:#FBFCFA;padding:24px 32px;border-radius:16px">箭頭從食物指向吃牠的生物。</p>
 </div>
 </div>
-<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#4F5F64">生態：食物網與能量金字塔 · 4</p>
-<aside>答案：10 kJ。每一層大約 90% 的能量用在呼吸和活動，以熱的形式散失，或留在沒被吃掉的部分。所以最頂層的掠食者數量最少。10% 是近似值，是課本和考試的標準數字。</aside>
+<p style="position:absolute;left:128px;bottom:64px;width:900px;font-size:24px;color:#4F5F64">生態：食物網與能量金字塔 · 5</p>
+<aside>請學生把每個箭頭大聲讀成「被……吃」或「把能量給」。</aside>
 </section>

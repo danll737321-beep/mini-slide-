@@ -21,6 +21,7 @@ content/catalog.json  分類、課程名稱、各語言版本對應
 content/<deck>/       每份簡報的原始檔（deck.json + slides/*.html，1920×1080）
 data/decks.js         打包後的資料（由 build.py 產生，勿手改）
 tools/build.py        打包腳本
+tools/decks/          化學、生物 6 課的產生器（fm.py 是 Force & Motion 共用版面）
 ```
 
 ## 新增或更新簡報
@@ -28,3 +29,5 @@ tools/build.py        打包腳本
 1. 把簡報資料夾放進 `content/`，例如 `content/osmosis-zh/`（內含 `deck.json` 與 `slides/`）
 2. 在 `content/catalog.json` 對應課程的 `versions` 加上 `"zh": "osmosis-zh"`
 3. 執行 `python3 tools/build.py`，commit 後推上 GitHub
+
+化學、生物 6 課由 `tools/decks/*.py` 產生（中英同一份原稿）。改內容後執行 `python3 tools/decks/<課>.py`，再 `python3 tools/build.py`。

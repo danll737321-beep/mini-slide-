@@ -124,6 +124,12 @@ class Deck:
                 f'<p style="font-size:28px;line-height:1.5;color:{ON_DARK}">{line2}</p>')
         self._add('formula', INK, BG, body, aside, section=section, extra='gap:48px;justify-content:center', footer_ink=ON_DARK)
 
+    def rule(self, kicker, statement, sub, aside, section=None):
+        body = (f'<p style="font-size:32px;font-weight:{self.W};letter-spacing:4px;color:{ACC_L}">{kicker}</p>\n'
+                f'<p style="font-size:96px;font-weight:900;line-height:1.2">{statement}</p>\n'
+                f'<p style="font-size:36px;line-height:1.5;color:{ON_DARK}">{sub}</p>')
+        self._add('rule', INK, BG, body, aside, section=section, extra='gap:48px;justify-content:center', footer_ink=ON_DARK)
+
     def compare(self, kicker, h2, header, rows, bottom, aside):
         th = (f'<tr><th style="width:34%;text-align:left">{header[0]}</th><th style="width:33%;text-align:left">{header[1]}</th>'
               f'<th style="width:33%;text-align:left">{header[2]}</th></tr>')
@@ -279,3 +285,28 @@ def svg_cabbage(lang, label):
                 f'<path d="M{x} 20 L{x + 30} 184 H{x + 140} L{x + 170} 20" fill="none" stroke="{INK}" stroke-width="6" stroke-linejoin="round"/>'
                 f'<text x="{x + 85}" y="228" text-anchor="middle" font-size="28" font-weight="800" fill="{INK}">pH {ph}</text>')
     return f'<svg aria-label="{label}" width="1500" height="240" viewBox="0 0 1500 240">\n{out}\n</svg>'
+
+
+# ---------- small drawing helpers ----------
+import math as _m
+
+def arrow(x1, y1, x2, y2, c=MUTED, w=6, head=20):
+    a = _m.atan2(y2 - y1, x2 - x1)
+    bx, by = x2 - head * _m.cos(a), y2 - head * _m.sin(a)
+    px, py = head * 0.55 * _m.sin(a), head * 0.55 * _m.cos(a)
+    return (f'<line x1="{x1:.0f}" y1="{y1:.0f}" x2="{bx:.0f}" y2="{by:.0f}" stroke="{c}" stroke-width="{w}" stroke-linecap="round"/>'
+            f'<polygon points="{x2:.0f},{y2:.0f} {bx + px:.0f},{by - py:.0f} {bx - px:.0f},{by + py:.0f}" fill="{c}"/>')
+
+def box(x, y, w, h, label, fill=CARD, ink=INK, stroke=LINE, fs=28, rx=16, weight=800):
+    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="3"/>'
+            f'<text x="{x + w / 2:.0f}" y="{y + h / 2 + fs * 0.36:.0f}" text-anchor="middle" font-size="{fs}" font-weight="{weight}" fill="{ink}">{label}</text>')
+
+def dot(x, y, r, fill, label='', ink='#FFFFFF', fs=24):
+    t = f'<text x="{x}" y="{y + fs * 0.36:.0f}" text-anchor="middle" font-size="{fs}" font-weight="800" fill="{ink}">{label}</text>' if label else ''
+    return f'<circle cx="{x}" cy="{y}" r="{r}" fill="{fill}"/>{t}'
+
+def text(x, y, s, fs=26, fill=INK, weight=700, anchor='middle'):
+    return f'<text x="{x}" y="{y}" text-anchor="{anchor}" font-size="{fs}" font-weight="{weight}" fill="{fill}">{s}</text>'
+
+def svg(label, w, h, inner):
+    return f'<svg aria-label="{label}" width="{w}" height="{h}" viewBox="0 0 {w} {h}">\n{inner}\n</svg>'
