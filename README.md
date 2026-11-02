@@ -1,6 +1,6 @@
 # Mini Lessons 迷你課
 
-國中理化與生物迷你課簡報，依 物理 / 化學 / 生物 分類，每類 3 課。介面可切換中文 / English。
+理化與生物雙語迷你課簡報，依 物理 / 化學 / 生物 分類，每類 3 課。介面可切換中文 / English。
 
 **網址：** https://danll737321-beep.github.io/mini-slide-/
 

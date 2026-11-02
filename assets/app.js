@@ -5,15 +5,15 @@
 
   const T = {
     zh: {
-      title: 'Mini Lessons 迷你課', sub: '國中理化與生物 · 每課 15 分鐘', all: '全部',
-      slides: n => `${n} 張投影片`, lessons: n => `${n} 課`, lesson: n => `第 ${n} 課`,
+      title: 'Mini Lessons 迷你課', sub: '物理 · 化學 · 生物', all: '全部',
+      slides: n => `${n} 張投影片`, lessons: n => `${n} 課`,
       both: '中文 · English', enOnly: '僅英文版', back: '返回', notes: '講者備註', full: '全螢幕',
       noNotes: '這張沒有備註。', prev: '上一張', next: '下一張',
       help: '鍵盤：<kbd>←</kbd> <kbd>→</kbd> 翻頁 · <kbd>F</kbd> 全螢幕 · <kbd>N</kbd> 備註 · <kbd>Esc</kbd> 返回',
     },
     en: {
-      title: 'Mini Lessons', sub: 'Middle school science · 15 minutes each', all: 'All',
-      slides: n => `${n} slides`, lessons: n => `${n} lessons`, lesson: n => `Lesson ${n}`,
+      title: 'Mini Lessons', sub: 'Physics · Chemistry · Biology', all: 'All',
+      slides: n => `${n} slides`, lessons: n => `${n} lessons`,
       both: '中文 · English', enOnly: 'English only', back: 'Back', notes: 'Speaker notes', full: 'Fullscreen',
       noNotes: 'No notes for this slide.', prev: 'Previous', next: 'Next',
       help: 'Keys: <kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>F</kbd> fullscreen · <kbd>N</kbd> notes · <kbd>Esc</kbd> back',
@@ -85,7 +85,7 @@
                 return `<a class="card" href="#/${l.id}/1" style="--c:var(--${c.id})">
                   <div class="thumb"><div class="slide-root">${d.slides[0].html}</div></div>
                   <div class="card-body">
-                    <span class="card-kicker">${esc(c.name[state.lang])} · ${t().lesson(i + 1)}</span>
+                    <span class="card-kicker">${esc(c.name[state.lang])}</span>
                     <h3 class="card-title">${esc(l.name[state.lang])}</h3>
                     <p class="card-sub">${esc(l.name[state.lang === 'zh' ? 'en' : 'zh'])}</p>
                     <div class="badges">
@@ -131,7 +131,7 @@
       <div class="viewer" tabindex="-1">
         <div class="vbar">
           <button class="ibtn" data-act="back" aria-label="${t().back}">${svg('back')}<span class="hide-sm">${t().back}</span></button>
-          <div class="title">${esc(l.name[state.lang])}<small>${esc(l.cat.name[state.lang])} · ${t().lesson(l.index)}${l.versions.zh ? '' : ' · ' + t().enOnly}</small></div>
+          <div class="title">${esc(l.name[state.lang])}<small>${esc(l.cat.name[state.lang])}${l.versions.zh ? '' : ' · ' + t().enOnly}</small></div>
           ${langToggle()}
           <button class="ibtn" data-act="notes" aria-pressed="${state.notes}" aria-label="${t().notes}" title="${t().notes} (N)">${svg('notes')}</button>
           <button class="ibtn" data-act="full" aria-label="${t().full}" title="${t().full} (F)">${svg('full')}</button>
