@@ -5,16 +5,16 @@
 
   const T = {
     zh: {
-      title: 'Mini Lessons 迷你課', sub: '物理 · 化學 · 生物', all: '全部',
+      title: '迷你課', sub: '物理 · 化學 · 生物', all: '全部',
       slides: n => `${n} 張投影片`, lessons: n => `${n} 課`,
-      both: '中文 · English', enOnly: '僅英文版', back: '返回', notes: '講者備註', full: '全螢幕',
+      lang: '語言', cats: '分類', back: '返回', notes: '講者備註', full: '全螢幕',
       noNotes: '這張沒有備註。', prev: '上一張', next: '下一張',
       help: '鍵盤：<kbd>←</kbd> <kbd>→</kbd> 翻頁 · <kbd>F</kbd> 全螢幕 · <kbd>N</kbd> 備註 · <kbd>Esc</kbd> 返回',
     },
     en: {
       title: 'Mini Lessons', sub: 'Physics · Chemistry · Biology', all: 'All',
       slides: n => `${n} slides`, lessons: n => `${n} lessons`,
-      both: '中文 · English', enOnly: 'English only', back: 'Back', notes: 'Speaker notes', full: 'Fullscreen',
+      lang: 'Language', cats: 'Categories', back: 'Back', notes: 'Speaker notes', full: 'Fullscreen',
       noNotes: 'No notes for this slide.', prev: 'Previous', next: 'Next',
       help: 'Keys: <kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>F</kbd> fullscreen · <kbd>N</kbd> notes · <kbd>Esc</kbd> back',
     },
@@ -45,7 +45,7 @@
   };
   const svg = n => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[n]}</svg>`;
   const langToggle = (disabledZh = false) => `
-    <div class="lang" role="group" aria-label="Language">
+    <div class="lang" role="group" aria-label="${t().lang}">
       <button data-lang="zh" aria-pressed="${state.lang === 'zh'}">中文</button>
       <button data-lang="en" aria-pressed="${state.lang === 'en'}">EN</button>
     </div>`;
@@ -71,26 +71,23 @@
           <div class="brand"><h1>${esc(t().title)}</h1><p>${esc(t().sub)} · ${t().lessons(total)}</p></div>
           ${langToggle()}
         </header>
-        <nav class="tabs" aria-label="Categories">
+        <nav class="tabs" aria-label="${t().cats}">
           ${tabs.map(c => `<button data-filter="${c.id}" aria-pressed="${state.filter === c.id}" style="--c:var(--${c.id})">
             ${c.id === 'all' ? '' : '<span class="dot"></span>'}${esc(c.name[state.lang])}</button>`).join('')}
         </nav>
         ${cats.filter(c => state.filter === 'all' || state.filter === c.id).map(c => `
           <section class="cat" style="--c:var(--${c.id})">
-            <h2>${esc(c.name[state.lang])} <small>${esc(c.name[state.lang === 'zh' ? 'en' : 'zh'])} · ${t().lessons(c.lessons.length)}</small></h2>
+            <h2>${esc(c.name[state.lang])} <small>${t().lessons(c.lessons.length)}</small></h2>
             <div class="grid">
               ${c.lessons.map((l, i) => {
                 const d = deckFor(l); const L = lessons[l.id];
-                const hasZh = !!l.versions.zh;
                 return `<a class="card" href="#/${l.id}/1" style="--c:var(--${c.id})">
                   <div class="thumb"><div class="slide-root">${d.slides[0].html}</div></div>
                   <div class="card-body">
                     <span class="card-kicker">${esc(c.name[state.lang])}</span>
                     <h3 class="card-title">${esc(l.name[state.lang])}</h3>
-                    <p class="card-sub">${esc(l.name[state.lang === 'zh' ? 'en' : 'zh'])}</p>
                     <div class="badges">
                       <span class="badge">${t().slides(d.slides.length)}</span>
-                      <span class="badge ${hasZh ? 'on' : ''}">${hasZh ? t().both : t().enOnly}</span>
                     </div>
                   </div></a>`;
               }).join('')}
@@ -131,7 +128,7 @@
       <div class="viewer" tabindex="-1">
         <div class="vbar">
           <button class="ibtn" data-act="back" aria-label="${t().back}">${svg('back')}<span class="hide-sm">${t().back}</span></button>
-          <div class="title">${esc(l.name[state.lang])}<small>${esc(l.cat.name[state.lang])}${l.versions.zh ? '' : ' · ' + t().enOnly}</small></div>
+          <div class="title">${esc(l.name[state.lang])}<small>${esc(l.cat.name[state.lang])}</small></div>
           ${langToggle()}
           <button class="ibtn" data-act="notes" aria-pressed="${state.notes}" aria-label="${t().notes}" title="${t().notes} (N)">${svg('notes')}</button>
           <button class="ibtn" data-act="full" aria-label="${t().full}" title="${t().full} (F)">${svg('full')}</button>
