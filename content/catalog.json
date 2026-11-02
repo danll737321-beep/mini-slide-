@@ -1,0 +1,31 @@
+{
+  "categories": [
+    {
+      "id": "physics",
+      "name": { "zh": "物理", "en": "Physics" },
+      "lessons": [
+        { "id": "force-motion", "name": { "zh": "力與運動", "en": "Force & Motion" }, "versions": { "en": "force-motion-en" } },
+        { "id": "circuits", "name": { "zh": "電路與歐姆定律", "en": "Circuits & Ohm’s Law" }, "versions": { "zh": "circuits-zh", "en": "circuits-en" } },
+        { "id": "waves", "name": { "zh": "波動、聲音與光", "en": "Waves, Sound & Light" }, "versions": { "zh": "waves-zh", "en": "waves-en" } }
+      ]
+    },
+    {
+      "id": "chemistry",
+      "name": { "zh": "化學", "en": "Chemistry" },
+      "lessons": [
+        { "id": "chem-reactions", "name": { "zh": "化學反應與質量守恆", "en": "Chemical Reactions & Conservation of Mass" }, "versions": { "en": "chem-reactions-en" } },
+        { "id": "chem-acids", "name": { "zh": "酸、鹼、鹽", "en": "Acids, Bases & Salts" }, "versions": { "en": "chem-acids-en" } },
+        { "id": "chem-redox", "name": { "zh": "氧化與還原", "en": "Oxidation & Reduction" }, "versions": { "en": "chem-redox-en" } }
+      ]
+    },
+    {
+      "id": "biology",
+      "name": { "zh": "生物", "en": "Biology" },
+      "lessons": [
+        { "id": "bio-osmosis", "name": { "zh": "細胞：滲透作用", "en": "Cells: Osmosis" }, "versions": { "en": "bio-osmosis-en" } },
+        { "id": "bio-genetics", "name": { "zh": "遺傳：顯性與隱性", "en": "Genetics: Dominant & Recessive" }, "versions": { "en": "bio-genetics-en" } },
+        { "id": "bio-ecology", "name": { "zh": "生態：食物網與能量金字塔", "en": "Ecology: Food Webs & Energy Pyramids" }, "versions": { "en": "bio-ecology-en" } }
+      ]
+    }
+  ]
+}
